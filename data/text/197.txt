@@ -45,15 +45,15 @@ You couldn’t get away!\r
 The wild {STRVAR_1 1, 0, 0} can’t escape!\r
 The opposing {STRVAR_1 1, 0, 0} can’t escape!\r
 The Pokémon was\nhit {STRVAR_1 50, 0, 0} time(s)!
-{STRVAR_1 1, 0, 0}\nfbecame drowsy!
+{STRVAR_1 1, 0, 0}\nbecame drowsy!
 The wild {STRVAR_1 1, 0, 0}\nbecame drowsy!
 The opposing {STRVAR_1 1, 0, 0}\nbecame drowsy!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} made\n{STRVAR_1 1, 2, 0} become drowsy!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} made\nthe wild {STRVAR_1 1, 2, 0} become drowsy!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} made\nthe opposing {STRVAR_1 1, 2, 0} become drowsy!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 1, 2, 0}\fbecome drowsy!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 1, 2, 0}\nbecome drowsy!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made the wild\f{STRVAR_1 1, 2, 0} become drowsy!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 1, 2, 0}\fbecome drowsy!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 1, 2, 0}\nbecome drowsy!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made the opposing\f{STRVAR_1 1, 2, 0} become drowsy!
 {STRVAR_1 1, 0, 0} is\nalready drowsy!
 The wild {STRVAR_1 1, 0, 0} is\nalready drowsy!
