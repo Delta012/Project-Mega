@@ -892,6 +892,18 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
             debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
 #endif
         }
+
+    // Status Effects
+
+        // Drowsy
+        if (sp->battlemon[defender].condition & STATUS_SLEEP) {
+        finalModifier = QMul_RoundUp(finalModifier, UQ412__1_3333);
+#ifdef DEBUG_DAMAGE_CALC
+        debug_printf("\n=================\n");
+        debug_printf("[CalcBaseDamage] Drowsy target: +33%% damage\n");
+        debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+#endif
+        }
     }
 
     damage = QMul_RoundDown(damage, finalModifier);
