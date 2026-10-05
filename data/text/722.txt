@@ -13,7 +13,7 @@ Restores HP if hit by a\nWater-type move.
 Prevents it from\nbecoming infatuated.
 Eliminates the effects of\nweather.
 The Pokémon’s accuracy\nis boosted.
-Prevents the Pokémon\nfrom falling asleep.
+Prevents the Pokémon\nfrom drowsing.
 Changes the Pokémon’s\ntype to the foe’s move.
 Prevents the Pokémon\nfrom getting poisoned.
 It powers up Fire-type\nmoves if it’s hit by one.
@@ -25,7 +25,7 @@ Prevents the foe from\nescaping.
 Inflicts damage to the\nfoe on contact.
 Only supereffective\nmoves will hit.
 Gives full immunity to all\nGround-type moves.
-Contact may paralyze,\npoison, or cause sleep.
+Contact may paralyze,\npoison, or cause drowsiness.
 Passes a burn, poison,\nor paralysis to the foe.
 Prevents its stats from\nbeing lowered.
 All status problems heal\nwhen it switches out.
@@ -46,7 +46,7 @@ The Pokémon gradually\nrecovers HP in rain.
 The Pokémon summons a\nsandstorm in battle.
 The Pokémon raises the\nfoe’s PP usage.
 Ups resistance to Fire-\nand Ice-type moves.
-The Pokémon awakens\nquickly from sleep.
+The Pokémon quickly\nrecovers from drowsiness.
 Contact with the Pokémon\nmay burn the foe.
 Enables sure getaway\nfrom wild Pokémon.
 Prevents the Pokémon\nfrom losing accuracy.
@@ -70,7 +70,7 @@ Powers up Bug-type\nmoves in a pinch.
 Protects the Pokémon\nfrom recoil damage.
 The Pokémon makes it\nsunny if it is in battle.
 Prevents the foe from\nfleeing.
-Prevents the Pokémon\nfrom falling asleep.
+Prevents the Pokémon\nfrom drowsing.
 Prevents its stats from\nbeing lowered.
 Boosts the power of\nphysical attacks.
 The Pokémon is protected\nagainst critical hits.
@@ -121,7 +121,7 @@ The Pokémon can check\nthe foe’s held item.
 Powers up moves that\nhave recoil damage.
 Changes type to match\nthe held Plate.
 Powers up party Pokémon\nwhen it is sunny.
-Reduces a sleeping\nfoe’s HP.
+Reduces a drowsy\nfoe’s HP.
 Steals an item when\nhit by another Pokémon.
 Removes added effects to\nincrease move damage.
 Makes stat changes\nhave an opposite effect.
@@ -143,7 +143,7 @@ Sharply raises one stat\nand lowers another.
 Protects the Pokémon from\ndamage from weather.
 May poison targets when\na Pokémon makes contact.
 Restores a little HP when\nwithdrawn from battle.
-Protects from\nDefense-lowering attacks.
+Prevents other Pokémon\nfrom lowering its stats.
 Boosts the Pokémon’s\nSpeed in a sandstorm.
 Makes status moves more\nlikely to miss.
 Boosts move power when\nthe Pokémon moves last.
@@ -173,7 +173,7 @@ Protects the Pokémon from\nsome ball and bomb moves.
 Sharply boosts Sp. Atk\nwhen a stat is lowered.
 Boosts the power of\nbiting moves.
 Normal-type moves become\nIce-type and powered up.
-Prevents itself and\nallies from falling asleep.
+Prevents itself and\nallies from drowsing.
 Changes between Blade and\nShield Forme with attacks.
 Flying-type moves gain\npriority when its HP is full.
 Powers up aura and\npulse moves.
@@ -318,3 +318,5 @@ Powers up fire moves.
 Placeholder
 Burns the attacker upon\ntaking damage.
 Halves the damage from\ncontact moves.
+The Pokémon is protected\nagainst critical hits. Contact with it lowers an attacker’s random stat.
+Normal-type moves become\nBug-type and powered up.

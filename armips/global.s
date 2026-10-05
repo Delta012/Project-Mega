@@ -16,6 +16,8 @@
 
 .include "armips/asm/no_partner_double_battles.s" // allows no partner double battles
 
+.include "armips/asm/status_drowsy_frostbite.s" // changes sleep and freeze icons to drowsy and frostbite
+
 .if FAIRY_TYPE_IMPLEMENTED == 1
 
 .include "armips/asm/fairy.s" // repoints all the move table defines within the structure
@@ -36,3 +38,4 @@ armips/asm/trainer_ai.s - ~0x60 bytes of extra code
 
 plus all the c injection stuff.  we are not worried about that here, that is dynamically managed
 */
+

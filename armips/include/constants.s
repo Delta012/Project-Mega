@@ -120,6 +120,7 @@
 .equ EVO_FORM_ARGUMENT, 47 // Yamask, Stantler, Basculin, Primeape, Bisharp, Gimmighoul
 .equ EVO_LETS_GO, 48 // Pawmo, Bramblin, Rellor https://xcancel.com/Sibuna_Switch/status/1678027317891694593
 .equ EVO_DUMMY, 49 // Inaccessible evolution methods
+.equ EVO_STONE_HAS_MOVE_ALOLAN_RAICHU, 50 // Method to obtain Alolan Raichu by evoling Pikachu
 
 // shadow size constants
 

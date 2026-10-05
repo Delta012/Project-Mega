@@ -333,7 +333,9 @@
 #define ABILITY_TEMP4            317
 #define ABILITY_SPICY_SPRAY      318
 #define ABILITY_AURA_GUARD       319
+#define ABILITY_COCOON           320
+#define ABILITY_BUGIZE           321
 
-#define NUM_ABILITIES ABILITY_AURA_GUARD + 1
+#define NUM_ABILITIES ABILITY_BUGIZE + 1
 
 #endif

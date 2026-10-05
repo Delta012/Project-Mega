@@ -365,7 +365,7 @@ The user switches places with a\nparty Pokémon in waiting, passing\nalong any s
 The user makes the ground under the\nfoe erupt with power. It may also\nlower the target’s Sp. Def.
 An all-out attack that becomes more\npowerful the less HP the user has.
 The foe is struck with an icy-cold\nbeam of energy. It may also freeze\nthe target solid.
-The user turns the ground into\nElectric Terrain for five turns,\npowering up Electric-type moves.\rPokémon on the ground can no longer\nfall asleep.
+The user turns the ground into\nElectric Terrain for five turns,\npowering up Electric-type moves.\rPokémon on the ground can no longer\nbecome drowsy.
 The user turns the ground into\nGrassy Terrain for five turns.\nThis powers up Grass-type moves.
 This protects Pokémon on the ground\nfrom priority moves and powers up\nPsychic-type moves for five turns.
 This protects Pokémon on the ground from\nstatus conditions and halves damage from\nDragon-type moves for five turns.
@@ -420,7 +420,7 @@ The user launches sharp icicles\nat the foe.\nIt strikes two to five times in a 
 Boiling water is shot at the foe.\nIt may also cause a burn.
 The user slams down with fire.\nThe more the user outweighs the foe,\nthe greater the damage.
 The user gathers light on the first turn,\nthen fills a blade with the light’s energy\nand attacks on the next turn.
-The user attacks in an uproar for\ntwo to five turns. Over that time,\nno one can fall asleep.
+The user attacks in an uproar for\ntwo to five turns. Over that time,\nno one can become drowsy.
 The user focuses its mind before\nlaunching a punch. It will fail if\nthe user is hit before it is used.
 An attack move that varies in power\nand type depending on the weather.
 Gliding on the ground, the user\nattacks the target. This move always\ngoes first on Grassy Terrain.

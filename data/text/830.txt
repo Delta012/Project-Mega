@@ -19,7 +19,7 @@ A spray-type medicine for treating\nwounds. It can be used to restore\n20 HP to 
 A spray-type medicine for poisoning.\nIt can be used once to lift the effects\nof being poisoned from a Pokémon.
 A spray-type medicine for treating\nburns. It can be used to cure a\nPokémon suffering from a burn.
 A spray-type medicine for treating\nfreezing. It can be used to thaw out\na Pokémon that has been frozen solid.
-A spray-type medicine to wake the\nsleeping. It can be used to rouse a\nPokémon from the clutches of sleep.
+A spray-type medicine to wake the\ndrowsy. It can be used to rouse a\nPokémon from drowsiness.
 A spray-type medicine for treating\nparalysis. It can be used to free a\nPokémon that has been paralyzed.
 A medicine that can be used to fully\nrestore the max HP of a Pokémon and\ncure any status conditions it may have.
 A spray-type medicine for treating\nwounds. It can be used to fully\nrestore the max HP of a Pokémon.
@@ -148,7 +148,7 @@ Stationery featuring a print\nof colorful letter sets.\nLet a Pokémon hold it f
 Stationery featuring a print\nof a vivid rainbow pattern.\nLet a Pokémon hold it for delivery.
 Stationery featuring a print\nof a tough-looking brick pattern.\nLet a Pokémon hold it for delivery.
 If a Pokémon holds one of these Berries,\nit will be able to free itself from\nparalysis.
-If a Pokémon holds one of these Berries,\nit will be able to wake itself from sleep.
+If a Pokémon holds one of these Berries,\nit will be able to wake itself from drowsiness.
 If a Pokémon holds one of these Berries,\nit will be able to lift the effects of\nbeing poisoned from itself.
 If a Pokémon holds one of these Berries,\nit will be able to cure itself of a burn.
 If a Pokémon holds one of these Berries,\nit will be able to thaw itself after being\n frozen.
@@ -345,7 +345,7 @@ A wondrous wall of light is put up to\nsuppress damage from special attacks\nfor
 It enables the user to evade all\nattacks. Its chance of failing rises\nif it is used in succession.
 The user summons a heavy rain that\nfalls for five turns, powering up\nWater-type moves.
 A nutrient-draining attack. The user’s\nHP is restored by half the damage\ntaken by the target.
-The user creates a protective field\nthat prevents status problems like\npoison, paralysis, burn, and sleep.
+The user creates a protective field\nthat prevents status problems like\npoison, paralysis, burn, and drowsiness.
 A full-power attack that grows more\npowerful the less the user likes its\nTrainer.
 A two-turn attack. The user gathers\nlight, then blasts a bundled beam on\nthe second turn.
 The foe is slammed with a sturdy\ntail of steel. It may also lower the\ntarget’s Defense stat if it hits.
@@ -369,7 +369,7 @@ The user confounds the foe with speed,\nthen strikes. The attack lands without\n
 The user torments and enrages the\nfoe, making it incapable of using the\nsame move twice in a row.
 An attack move that doubles its power\nif the user is poisoned, paralyzed, or\nhas a burn.
 An attack move with effects that\nvary depending on the user’s\nenvironment.
-The user goes to sleep for two\nturns. It fully restores the user’s HP\nand heals any status problem.
+The user goes drowsy for two\nturns. It fully restores the user’s HP\nand heals any status problem.
 If it is the opposite gender of the\nuser, the foe becomes infatuated\nand less likely to attack.
 The user attacks and steals the foe’s\nheld item simultaneously. It can’t\nsteal if the user holds an item.
 The foe is hit with wings of steel.\nIt may also raise the user’s Defense\nstat.
@@ -407,10 +407,10 @@ If it is the opposite gender of the\nuser, the foe is charmed into sharply\nlowe
 The user releases a horrible aura\nimbued with dark thoughts. It may also\nmake the target flinch.
 Large boulders are hurled at the foe\nto inflict damage. It may also make the\ntarget flinch.
 The user slashes at the foe by\ncrossing its scythes or claws as if\nthey were a pair of scissors.
-While it is asleep, the user\nrandomly uses one of the moves\nit knows.
+While it is drowsy, the user\nrandomly uses one of the moves\nit knows.
 The user draws power from the Berry\nit is holding to attack. The Berry\ndetermines its type and power.
 The foe is stabbed with a tentacle or\narm steeped with poison. It may also\npoison the foe.
-An attack that works only on a\nsleeping foe. It absorbs half the\ndamage caused to heal the user’s HP.
+An attack that works only on a\n drowsy foe. It absorbs half the\ndamage caused to heal the user’s HP.
 The user snares the foe with grass\nand trips it. The heavier the foe, the\ngreater the damage.
 The user enrages the foe into\nconfusion. However, it also sharply\nraises the foe’s Attack stat.
 The user pecks the foe. If the foe is\nholding a Berry, the user plucks it and\ngains its effect.

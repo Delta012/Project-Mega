@@ -101,12 +101,12 @@ _lowerThanThreeTurns:
 
     UpdateMonDataFromVar OPCODE_FLAG_ON, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, BSCRIPT_VAR_CALC_TEMP
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _205
-    // {0} fell asleep!
+    // {0} became drowsy!
     PrintMessage 47, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
     GoTo _211
 
 _205:
-    // {0}’s {1} made {2} fall asleep!
+    // {0}’s {1} made {2} become drowsy!
     PrintMessage 50, TAG_NICKNAME_ABILITY_NICKNAME, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_SIDE_EFFECT_MON
 
 _211:
@@ -163,7 +163,7 @@ _309:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _372
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _372
     WaitButtonABTime 30
-    // {0} is already asleep!
+    // {0} is already drowsy!
     PrintMessage 57, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
     GoTo _365
 

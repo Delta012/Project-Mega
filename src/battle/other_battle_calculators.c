@@ -1770,6 +1770,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         || (sp->moveTbl[sp->current_move_index].effect == MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL)) {
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
             && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SHELL_ARMOR) == FALSE)
+            && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_COCOON) == FALSE)
             && ((side_condition & SIDE_STATUS_LUCKY_CHANT) == 0)
             && ((move_effect & MOVE_EFFECT_FLAG_NO_CRITICAL) == 0)) {
             multiplier = 2;

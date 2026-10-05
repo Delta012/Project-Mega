@@ -226,6 +226,65 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
             seq_no[0] = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
             ret = TRUE;
         }
+    } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_COCOON)) {
+        u8 COCOON_RANDOM_STAT;
+        COCOON_RANDOM_STAT = BattleRand(bw) % 5 ;
+            if (COCOON_RANDOM_STAT == 0) {
+                if ((sp->battlemon[sp->attack_client].states[STAT_ATTACK] > 0)
+                    && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+                    && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
+                    sp->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_DOWN_1_STAGE;
+                    sp->addeffect_type = SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    sp->battlerIdTemp = sp->defence_client;
+                    seq_no[0] = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
+                    ret = TRUE;
+                }
+        }   else if (COCOON_RANDOM_STAT == 1) {
+                if ((sp->battlemon[sp->attack_client].states[STAT_DEFENSE] > 0)
+                    && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+                    && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
+                    sp->addeffect_param = MOVE_SUBSCRIPT_PTR_DEFENSE_DOWN_1_STAGE;
+                    sp->addeffect_type = SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    sp->battlerIdTemp = sp->defence_client;
+                    seq_no[0] = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
+                    ret = TRUE;
+                }
+        }   else if (COCOON_RANDOM_STAT == 2) {
+                if ((sp->battlemon[sp->attack_client].states[STAT_SPECIAL_ATTACK] > 0)
+                    && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+                    && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
+                    sp->addeffect_param = MOVE_SUBSCRIPT_PTR_SP_ATTACK_DOWN_1_STAGE;
+                    sp->addeffect_type = SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    sp->battlerIdTemp = sp->defence_client;
+                    seq_no[0] = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
+                    ret = TRUE;
+                }
+        }   else if (COCOON_RANDOM_STAT == 3) {
+                if ((sp->battlemon[sp->attack_client].states[STAT_SPECIAL_DEFENSE] > 0)
+                    && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+                    && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
+                    sp->addeffect_param = MOVE_SUBSCRIPT_PTR_SP_DEFENSE_DOWN_1_STAGE;
+                    sp->addeffect_type = SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    sp->battlerIdTemp = sp->defence_client;
+                    seq_no[0] = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
+                    ret = TRUE;
+                }
+        }   else if (COCOON_RANDOM_STAT == 4) {
+                if ((sp->battlemon[sp->attack_client].states[STAT_SPEED] > 0)
+                    && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+                    && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
+                    sp->addeffect_param = MOVE_SUBSCRIPT_PTR_SPEED_DOWN_1_STAGE;
+                    sp->addeffect_type = SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY;
+                    sp->state_client = sp->attack_client;
+                    sp->battlerIdTemp = sp->defence_client;
+                    seq_no[0] = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
+                    ret = TRUE;
+                }
+        }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_WANDERING_SPIRIT)) {
         if (sp->battlemon[sp->attack_client].ability != ABILITY_WANDERING_SPIRIT
             && !AbilityFailSkillSwap(sp->battlemon[sp->attack_client].ability)

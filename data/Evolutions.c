@@ -156,7 +156,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_CATERPIE] = {
         .entries = {
-            { EVO_LEVEL, 7, SPECIES_METAPOD },
+            { EVO_LEVEL, 12, SPECIES_METAPOD },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -170,7 +170,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_METAPOD] = {
         .entries = {
-            { EVO_LEVEL, 10, SPECIES_BUTTERFREE },
+            { EVO_LEVEL, 16, SPECIES_BUTTERFREE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -198,7 +198,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_WEEDLE] = {
         .entries = {
-            { EVO_LEVEL, 7, SPECIES_KAKUNA },
+            { EVO_LEVEL, 12, SPECIES_KAKUNA },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -212,7 +212,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_KAKUNA] = {
         .entries = {
-            { EVO_LEVEL, 10, SPECIES_BEEDRILL },
+            { EVO_LEVEL, 16, SPECIES_BEEDRILL },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -310,7 +310,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_SPEAROW] = {
         .entries = {
-            { EVO_LEVEL, 20, SPECIES_FEAROW },
+            { EVO_LEVEL, 26, SPECIES_FEAROW },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -366,8 +366,8 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_PIKACHU] = {
         .entries = {
+            { EVO_STONE_HAS_MOVE_ALOLAN_RAICHU, ITEM_THUNDER_STONE, SPECIES_RAICHU_ALOLAN },
             { EVO_STONE, ITEM_THUNDER_STONE, SPECIES_RAICHU },
-            { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },

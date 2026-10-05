@@ -240,6 +240,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     flag = 1;
                 } else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_CLEAR_BODY) == TRUE)
                     || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_WHITE_SMOKE) == TRUE)
+                    || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_BIG_PECKS) == TRUE)
                     || (GetBattlerAbility(sp, sp->state_client) == ABILITY_FULL_METAL_BODY)) // Full Metal Body cannot be ignored
                 {
                     sp->mp.id = BATTLE_MSG_STATS_NOT_LOWERED;
@@ -256,11 +257,6 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     flag = 1;
                 } else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_HYPER_CUTTER) == TRUE) && ((STAT_ATTACK + stattochange) == STAT_ATTACK)) {
                     sp->mp.id = BATTLE_MSG_ATTACK_NOT_LOWERED;
-                    sp->mp.tag = TAG_NICKNAME;
-                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-                    flag = 3;
-                } else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_BIG_PECKS) == TRUE) && ((STAT_ATTACK + stattochange) == STAT_DEFENSE)) {
-                    sp->mp.id = BATTLE_MSG_DEFENSE_NOT_LOWERED;
                     sp->mp.tag = TAG_NICKNAME;
                     sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
                     flag = 3;

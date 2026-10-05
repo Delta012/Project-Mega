@@ -1222,6 +1222,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
     int effect = ctx->moveTbl[ctx->current_move_index].effect;
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
+        
         if (ctx->field_condition & FIELD_CONDITION_UPROAR && GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_SOUNDPROOF) {
             ctx->battlerIdTemp = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WAKE_UP);
@@ -1229,13 +1230,20 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
         } else if ((ctx->current_move_index != MOVE_SLEEP_TALK && ctx->moveNoTemp == MOVE_SLEEP_TALK) == 0) {
+            
             u32 sleepCounterDecrease;
 
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_EARLY_BIRD) {
-                sleepCounterDecrease = 2;
-            } else {
+                if ((ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) > 2) {
+                    sleepCounterDecrease = (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) - 1;
+                } else {
+                    sleepCounterDecrease = 1;
+                    ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, 8);
+                }
+        } else {
                 sleepCounterDecrease = 1;
-            }
+                }
+            
             if ((ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) < sleepCounterDecrease) {
                 ctx->battlemon[ctx->attack_client].condition &= ~STATUS_SLEEP;
             } else {
@@ -1244,6 +1252,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
 
             if (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
                 if (ctx->current_move_index != MOVE_SNORE && ctx->moveNoTemp != MOVE_SLEEP_TALK) {
+                    if (BattleRand(bsys) % 2 != 0) {
                     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SLEEPING);
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                     ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
@@ -1252,6 +1261,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
                     ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
                     ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
                     return;
+                    }
                 }
             } else {
                 ctx->battlerIdTemp = ctx->attack_client;
@@ -1511,7 +1521,7 @@ void BattleController_CheckConfusion(struct BattleSystem *bsys, struct BattleStr
 void BattleController_CheckParalysis(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_PARALYSIS) {
-        if (BattleRand(bsys) % 4 == 0) {
+        if (BattleRand(bsys) % 8 == 0) {
             ctx->moveOutCheck[ctx->attack_client].stoppedFromParalysis = TRUE;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FULLY_PARALYZED);
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -3298,7 +3308,7 @@ int BattlerController_CheckMist(struct BattleSystem *bsys, struct BattleStruct *
 int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
-    BOOL hasClearBodyOrFullMetalBodyOrWhiteSmoke = MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_CLEAR_BODY) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FULL_METAL_BODY) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_WHITE_SMOKE);
+    BOOL hasClearBodyOrFullMetalBodyOrWhiteSmokeOrBigPecks = MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_CLEAR_BODY) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FULL_METAL_BODY) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_WHITE_SMOKE) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_BIG_PECKS);
 
     // If the defender is Grass-type and either the defender or the defender's ally has Flower Veil as an ability
     BOOL hasFlowerVeil = HasType(ctx, defender, TYPE_GRASS) && (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FLOWER_VEIL) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, BATTLER_ALLY(defender), ABILITY_FLOWER_VEIL));
@@ -3455,7 +3465,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
-        if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
+        if (hasClearBodyOrFullMetalBodyOrWhiteSmokeOrBigPecks) {
             subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
@@ -3467,15 +3477,11 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_LOWER;
             break;
         }
-        if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_BIG_PECKS)) {
-            subscriptToRun = BATTLE_SUBSCRIPT_DEFENSE_NOT_LOWERED;
-            break;
-        }
         if (hasFlowerVeil) {
             subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
-        if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
+        if (hasClearBodyOrFullMetalBodyOrWhiteSmokeOrBigPecks) {
             subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
@@ -3491,7 +3497,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
-        if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
+        if (hasClearBodyOrFullMetalBodyOrWhiteSmokeOrBigPecks) {
             subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
@@ -3507,7 +3513,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
-        if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
+        if (hasClearBodyOrFullMetalBodyOrWhiteSmokeOrBigPecks) {
             subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
@@ -3523,7 +3529,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
-        if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
+        if (hasClearBodyOrFullMetalBodyOrWhiteSmokeOrBigPecks) {
             subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
@@ -3538,7 +3544,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
-        if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
+        if (hasClearBodyOrFullMetalBodyOrWhiteSmokeOrBigPecks) {
             subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
@@ -3556,7 +3562,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
-        if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
+        if (hasClearBodyOrFullMetalBodyOrWhiteSmokeOrBigPecks) {
             subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
@@ -3570,7 +3576,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
-        if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
+        if (hasClearBodyOrFullMetalBodyOrWhiteSmokeOrBigPecks) {
             subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
@@ -3596,7 +3602,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
-        if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
+        if (hasClearBodyOrFullMetalBodyOrWhiteSmokeOrBigPecks) {
             subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }

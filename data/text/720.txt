@@ -318,3 +318,5 @@ Fire Mane
 Placeholder
 Spicy Spray
 Aura Guard
+Cocoon
+Bugize

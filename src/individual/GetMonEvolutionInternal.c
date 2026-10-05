@@ -22,6 +22,11 @@
 // top 5 bits are now form bit
 // if the form is nonzero, have to set it to that form.  most mons should keep their forms on evolution, but specifically significant gendered mons will need to not
 
+
+// new stuff
+
+#define EVO_STONE_HAS_MOVE_REQUIRED_MOVE_ALOLAN_RAICHU MOVE_SURF
+
 extern u16 gEvolutionSceneOverride[2][2];
 
 /**
@@ -286,6 +291,8 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                     }
                 }
                 break;
+            case EVO_STONE_HAS_MOVE_ALOLAN_RAICHU:
+                break;
             case EVO_LEVEL_NATURE_LOW_KEY:
                 lowkey = 1;
                 FALLTHROUGH;
@@ -388,6 +395,11 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 break;
             }
             if (evoTable[i].method == EVO_TRADE_ITEM && heldItem == evoTable[i].param && usedItem == ITEM_LINKING_CORD) {
+                target = evoTable[i].target & 0x7FF;
+                *method_ret = 0;
+                break;
+            }
+            if (evoTable[i].method == EVO_STONE_HAS_MOVE_ALOLAN_RAICHU && usedItem == evoTable[i].param && MonHasMove(pokemon, EVO_STONE_HAS_MOVE_REQUIRED_MOVE_ALOLAN_RAICHU) == TRUE) {
                 target = evoTable[i].target & 0x7FF;
                 *method_ret = 0;
                 break;

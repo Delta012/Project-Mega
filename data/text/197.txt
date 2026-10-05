@@ -45,19 +45,19 @@ You couldn’t get away!\r
 The wild {STRVAR_1 1, 0, 0} can’t escape!\r
 The opposing {STRVAR_1 1, 0, 0} can’t escape!\r
 The Pokémon was\nhit {STRVAR_1 50, 0, 0} time(s)!
-{STRVAR_1 1, 0, 0}\nfell asleep!
-The wild {STRVAR_1 1, 0, 0}\nfell asleep!
-The opposing {STRVAR_1 1, 0, 0}\nfell asleep!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} made\n{STRVAR_1 1, 2, 0} fall asleep!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} made\nthe wild {STRVAR_1 1, 2, 0} fall asleep!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} made\nthe opposing {STRVAR_1 1, 2, 0} fall asleep!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 1, 2, 0}\ffall asleep!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made the wild\f{STRVAR_1 1, 2, 0} fall asleep!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 1, 2, 0}\ffall asleep!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made the opposing\f{STRVAR_1 1, 2, 0} fall asleep!
-{STRVAR_1 1, 0, 0} is\nalready asleep!
-The wild {STRVAR_1 1, 0, 0} is\nalready asleep!
-The opposing {STRVAR_1 1, 0, 0} is\nalready asleep!
+{STRVAR_1 1, 0, 0}\nfbecame drowsy!
+The wild {STRVAR_1 1, 0, 0}\nbecame drowsy!
+The opposing {STRVAR_1 1, 0, 0}\nbecame drowsy!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} made\n{STRVAR_1 1, 2, 0} become drowsy!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} made\nthe wild {STRVAR_1 1, 2, 0} become drowsy!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} made\nthe opposing {STRVAR_1 1, 2, 0} become drowsy!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 1, 2, 0}\fbecome drowsy!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made the wild\f{STRVAR_1 1, 2, 0} become drowsy!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 1, 2, 0}\fbecome drowsy!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made the opposing\f{STRVAR_1 1, 2, 0} become drowsy!
+{STRVAR_1 1, 0, 0} is\nalready drowsy!
+The wild {STRVAR_1 1, 0, 0} is\nalready drowsy!
+The opposing {STRVAR_1 1, 0, 0} is\nalready drowsy!
 {STRVAR_1 1, 0, 0}\nwasn’t affected!
 The wild {STRVAR_1 1, 0, 0}\nwasn’t affected!
 The opposing {STRVAR_1 1, 0, 0}\nwasn’t affected!
@@ -203,9 +203,9 @@ The wild {STRVAR_1 1, 0, 0} is\nprotected by Safeguard!
 The opposing {STRVAR_1 1, 0, 0} is\nprotected by Safeguard!
 Your side is no longer\nprotected by the mystical veil!
 The opposing side is no longer\nprotected by the mystical veil!
-{STRVAR_1 1, 0, 0} went\nto sleep!
-The wild {STRVAR_1 1, 0, 0} went\nto sleep!
-The opposing {STRVAR_1 1, 0, 0} went\nto sleep!
+{STRVAR_1 1, 0, 0} feels\ndrowsy!
+The wild {STRVAR_1 1, 0, 0} feels\ndrowsy!
+The opposing {STRVAR_1 1, 0, 0} feels\ndrowsy!
 {STRVAR_1 1, 0, 0} slept and\nrestored its HP!
 The wild {STRVAR_1 1, 0, 0} slept and\nrestored its HP!
 The opposing {STRVAR_1 1, 0, 0} slept and\nrestored its HP!
@@ -297,12 +297,12 @@ The opposing {STRVAR_1 1, 0, 0} evaded\nthe attack!
 {STRVAR_1 1, 0, 0}’s health is\nsapped by Leech Seed!
 The wild {STRVAR_1 1, 0, 0}’s health is\nsapped by Leech Seed!
 The opposing {STRVAR_1 1, 0, 0}’s health is\nsapped by Leech Seed!
-{STRVAR_1 1, 0, 0} is fast\nasleep.
-The wild {STRVAR_1 1, 0, 0} is fast\nasleep.
-The opposing {STRVAR_1 1, 0, 0} is fast\nasleep.
-{STRVAR_1 1, 0, 0} woke up!
-The wild {STRVAR_1 1, 0, 0}\nwoke up!
-The opposing {STRVAR_1 1, 0, 0}\nwoke up!
+{STRVAR_1 1, 0, 0} is too\ndrowsy to move.
+The wild {STRVAR_1 1, 0, 0} is too\ndrowsy to move.
+The opposing {STRVAR_1 1, 0, 0} is too\ndrowsy to move.
+{STRVAR_1 1, 0, 0} is no longer\ndrowsy!
+The wild {STRVAR_1 1, 0, 0}\nis no longer drowsy!
+The opposing {STRVAR_1 1, 0, 0}\nis no longer drowsy!
 The uproar woke\n{STRVAR_1 1, 0, 0}!
 The uproar woke the\nwild {STRVAR_1 1, 0, 0}!
 The uproar woke the\nopposing {STRVAR_1 1, 0, 0}!

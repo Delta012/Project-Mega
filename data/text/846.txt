@@ -81,7 +81,7 @@ The user lays a trap of spikes at the\nopposing team’s feet. The trap hurts\nP
 The user rampages and attacks for\ntwo to three turns. The user then\nbecomes confused.
 The user materializes an odd psychic\nwave to attack the target. This\nattack does physical damage.
 The user endures any attack with at\nleast 1 HP. Its chance of failing\nrises if it is used in succession.
-While it is asleep, the user\nrandomly uses one of the moves it\nknows.
+While it is drowsing, the user\nrandomly uses one of the moves it\nknows.
 Using its tough and impressive horn,\nthe user rams into the target with\nno letup.
 The user switches places with a\nparty Pokémon in waiting and passes\nalong any stat changes.
 The user compels the target to keep\nusing the move it encored for three\nturns.
@@ -89,7 +89,7 @@ The target is slammed with a\nsteel-hard tail. This may also lower\nthe target�
 The user crunches up the target with\nsharp fangs. This may also lower the\ntarget’s Defense stat.
 The user hurls a shadowy blob at the\ntarget. This may also lower the\ntarget’s Sp. Def stat.
 Two turns after this move is used, a\nhunk of psychic energy attacks the\ntarget.
-The user attacks in an uproar for\nthree turns. During that time, no\nPokémon can fall asleep.
+The user attacks in an uproar for\nthree turns. During that time, no\nPokémon can become drowsy.
 The user attacks by exhaling hot breath\non opposing Pokémon. This may also leave\nthose Pokémon with a burn.
 The target is taunted into a rage\nthat allows it to use only attack\nmoves for three turns.
 The user catches the target off\nguard and swaps its held item with\nits own.
