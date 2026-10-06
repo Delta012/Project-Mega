@@ -1496,7 +1496,7 @@ void BattleController_CheckConfusion(struct BattleSystem *bsys, struct BattleStr
         ctx->battlemon[attacker].condition2 -= 1;
         if (ctx->battlemon[attacker].condition2 & STATUS2_CONFUSION) {
             // modernised to 33%
-            if (BattleRand(bsys) % 3 != 0) {
+            if (BattleRand(bsys) % 3 != 0 || GetBattlerAbility(ctx, attacker) == ABILITY_TANGLED_FEET) {
 #endif
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CONFUSED);
                 ctx->next_server_seq_no = ctx->server_seq_no;

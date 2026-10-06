@@ -888,15 +888,6 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
 
     for (i = 0; i < maxBattlers; i++) {
 
-        // Tangled Feet - 2048/4096
-
-        if ((defender == sp->rawSpeedNonRNGClientOrder[i])
-            && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TANGLED_FEET) == TRUE)
-            && (sp->battlemon[defender].condition2 & STATUS2_CONFUSION)) {
-            accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_5);
-            continue;
-        }
-
         // Hustle - 3277/4096
 
         if ((attacker == sp->rawSpeedNonRNGClientOrder[i])
@@ -926,7 +917,7 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
         // Compound Eyes - 5325/4096
 
         if ((attacker == sp->rawSpeedNonRNGClientOrder[i])
-            && (atk_ability == ABILITY_COMPOUND_EYES)) {
+            && ((atk_ability == ABILITY_COMPOUND_EYES) || (atk_ability == ABILITY_KEEN_EYE))) {
             accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_3);
         }
 
@@ -1001,7 +992,7 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
 
     // 8. If the user has Keen Eye or Unaware, or the move is Sacred Sword / Chip Away / Darkest Lariat, or the target is identified (Odor Sleuth / Foresight / Miracle Eye) and has positive evasion boosts, set the target's evasion boosts to 6 (+0).
 
-    if ((MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_ILLUMINATE) || MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_KEEN_EYE) || MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_UNAWARE) || MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_MINDS_EYE))
+    if ((MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_ILLUMINATE) || MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_COMPOUND_EYES) || MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_KEEN_EYE) || MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_UNAWARE) || MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_MINDS_EYE))
         || (move_no == MOVE_SACRED_SWORD || move_no == MOVE_CHIP_AWAY || move_no == MOVE_DARKEST_LARIAT)
         || (((sp->battlemon[defender].condition2 & STATUS2_FORESIGHT) || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MIRACLE_EYE)) && (stat_stage_evasion < 0))) {
         stat_stage_evasion = 0;
