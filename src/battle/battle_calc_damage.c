@@ -800,6 +800,18 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 #endif
         }
 
+        // Tangled Feet
+        if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
+            && (attackerAbility == ABILITY_TANGLED_FEET) && (sp->battlemon[attacker].condition2 & STATUS2_CONFUSION)) {
+                finalModifier = QMul_RoundUp(finalModifier, UQ412__1_3);
+#ifdef DEBUG_DAMAGE_CALC
+                debug_printf("\n=================\n");
+                debug_printf("[CalcBaseDamage] Tangled Feet\n", sp->rawSpeedNonRNGClientOrder[i], i);
+                debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+#endif
+
+        }
+
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
             && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_AURA_GUARD)) {
             // 6.9.17 Aura Guard (contact moves) //TODO: confirm location
@@ -810,18 +822,6 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
                 debug_printf("[CalcBaseDamage] 6.9.17 Aura Guard (contact moves)\n");
                 debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
 #endif
-        }
-        
-        // Tangled Feet
-        if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
-            && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_TANGLED_FEET) && (sp->battlemon[attacker].condition & STATUS2_CONFUSION)) {
-                finalModifier = QMul_RoundUp(finalModifier, UQ412__1_3);
-#ifdef DEBUG_DAMAGE_CALC
-                debug_printf("\n=================\n");
-                debug_printf("[CalcBaseDamage] Tangled Feet\n", sp->rawSpeedNonRNGClientOrder[i], i);
-                debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
-#endif
-
             }
         }
     }

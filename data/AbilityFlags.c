@@ -80,7 +80,7 @@ const AbilityFlags UNUSED sAbilityFlags[] = {
     [ABILITY_PURE_POWER] = { .disabledByNeutralizingGas = TRUE },
     [ABILITY_SHELL_ARMOR] = { .ignoredByMoldBreaker = TRUE, .disabledByNeutralizingGas = TRUE },
     [ABILITY_AIR_LOCK] = { .disabledByNeutralizingGas = TRUE },
-    [ABILITY_TANGLED_FEET] = { .ignoredByMoldBreaker = TRUE, .disabledByNeutralizingGas = TRUE },
+    [ABILITY_TANGLED_FEET] = { .disabledByNeutralizingGas = TRUE },
     [ABILITY_MOTOR_DRIVE] = { .ignoredByMoldBreaker = TRUE, .disabledByNeutralizingGas = TRUE },
     [ABILITY_RIVALRY] = { .disabledByNeutralizingGas = TRUE },
     [ABILITY_STEADFAST] = { .disabledByNeutralizingGas = TRUE },
