@@ -809,7 +809,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 
                 if ((sp->battlemon[battlerId].condition & STATUS_FREEZE) && sp->battlemon[battlerId].hp != 0) {
                     sp->battlerIdTemp = battlerId;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FREEZE);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FREEZE_DAMAGE);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     ret = 1;

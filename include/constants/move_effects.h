@@ -418,6 +418,8 @@
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)
 
+#define MOVE_EFFECT_STATUS_FREEZE                           409
+
 #define RANGE_SINGLE_TARGET           0
 #define RANGE_SINGLE_TARGET_SPECIAL   (1 << 0)
 #define RANGE_RANDOM_OPPONENT         (1 << 1)
@@ -430,6 +432,5 @@
 #define RANGE_ALLY                    (1 << 8)
 #define RANGE_SINGLE_TARGET_USER_SIDE (1 << 9)
 #define RANGE_FRONT                   (1 << 10)
-#define MOVE_EFFECT_STATUS_FREEZE     (1 << 11)
 
 #endif

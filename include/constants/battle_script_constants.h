@@ -32,7 +32,7 @@
 #define BATTLE_SUBSCRIPT_BURN                             (25)
 #define BATTLE_SUBSCRIPT_BURN_DAMAGE                      (26)
 #define BATTLE_SUBSCRIPT_FREEZE                           (27)
-#define BATTLE_SUBSCRIPT_FROZEN                           (28)
+#define BATTLE_SUBSCRIPT_FREEZE_DAMAGE                    (28)
 #define BATTLE_SUBSCRIPT_THAW_OUT                         (29)
 #define BATTLE_SUBSCRIPT_DEFROSTED_BY_MOVE                (30)
 #define BATTLE_SUBSCRIPT_PARALYZE                         (31)

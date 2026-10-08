@@ -583,7 +583,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
     // Frosbite Modifier
 
     if (movesplit == SPLIT_SPECIAL) {
-        // Frostbite halves special damage.  this is ignored by guts and facade (as of gen 6)
+        // Frostbite halves special damage.  this is ignored by guts and facade
         if ((sp->battlemon[attacker].condition & STATUS_FREEZE) && (attackerAbility != ABILITY_GUTS) && (moveno != MOVE_FACADE)) {
             damage = QMul_RoundDown(damage, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_ROLLS

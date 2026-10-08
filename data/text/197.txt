@@ -83,41 +83,41 @@ The opposing {STRVAR_1 1, 0, 0} was badly\npoisoned!
 {STRVAR_1 1, 0, 0} had its\nenergy drained!
 The wild {STRVAR_1 1, 0, 0} had its\nenergy drained!
 The opposing {STRVAR_1 1, 0, 0} had its\nenergy drained!
-{STRVAR_1 1, 0, 0} was burned!
-The wild {STRVAR_1 1, 0, 0}\nwas burned!
-The opposing {STRVAR_1 1, 0, 0}\nwas burned!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nburned {STRVAR_1 1, 2, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nburned the wild {STRVAR_1 1, 2, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nburned the opposing {STRVAR_1 1, 2, 0}!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} burned {STRVAR_1 1, 2, 0}!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} burned the wild\f{STRVAR_1 1, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} burned {STRVAR_1 1, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} burned the opposing\f{STRVAR_1 1, 2, 0}!
-{STRVAR_1 1, 0, 0} is hurt\nby its burn!
-The wild {STRVAR_1 1, 0, 0} is hurt\nby its burn!
-The opposing {STRVAR_1 1, 0, 0} is hurt\nby its burn!
-{STRVAR_1 1, 0, 0} is already burned!
-The wild {STRVAR_1 1, 0, 0}\nis already burned!
-The opposing {STRVAR_1 1, 0, 0}\nis already burned!
-{STRVAR_1 1, 0, 0} was\nfrozen solid!
-The wild {STRVAR_1 1, 0, 0} was\nfrozen solid!
-The opposing {STRVAR_1 1, 0, 0} was\nfrozen solid!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nfroze {STRVAR_1 1, 2, 0} solid!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nfroze the wild {STRVAR_1 1, 2, 0} solid!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nfroze the opposing {STRVAR_1 1, 2, 0} solid!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze {STRVAR_1 1, 2, 0}\fsolid!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze the wild\f{STRVAR_1 1, 2, 0} solid!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze {STRVAR_1 1, 2, 0}\fsolid!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze the opposing\f{STRVAR_1 1, 2, 0} solid!
-{STRVAR_1 1, 0, 0} is\nfrozen solid!
-The wild {STRVAR_1 1, 0, 0} is\nfrozen solid!
-The opposing {STRVAR_1 1, 0, 0} is\nfrozen solid!
-{STRVAR_1 1, 0, 0} thawed out!
-The wild {STRVAR_1 1, 0, 0} thawed out!
-The opposing {STRVAR_1 1, 0, 0} thawed out!
-{STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
+{STRVAR_1 1, 0, 0} was burned!                                                                              \\ BURN - DONE
+The wild {STRVAR_1 1, 0, 0}\nwas burned!                                                                    \\ BURN - DONE
+The opposing {STRVAR_1 1, 0, 0}\nwas burned!                                                                \\ BURN - DONE
+{STRVAR_1 1, 0, 0} was burned!                                                                              \\ BURN ABILITY - DONE
+The wild {STRVAR_1 1, 0, 0}\nwas burned!                                                                    \\ BURN ABILITY - DONE
+The opposing {STRVAR_1 1, 0, 0}\nwas burned!                                                                \\ BURN ABILITY - DONE
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} burned {STRVAR_1 1, 2, 0}!                                \\ TO CHANGE
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} burned the wild\f{STRVAR_1 1, 2, 0}!                      \\ TO CHANGE
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} burned {STRVAR_1 1, 2, 0}!                            \\ TO CHANGE
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} burned the opposing\f{STRVAR_1 1, 2, 0}!              \\ TO CHANGE
+{STRVAR_1 1, 0, 0} was hurt\nby its burn!                                                                   \\ BURN DOT DAMAGE - DONE
+The wild {STRVAR_1 1, 0, 0} was hurt\nby its burn!                                                          \\ BURN DOT DAMAGE - DONE
+The opposing {STRVAR_1 1, 0, 0} was hurt\nby its burn!                                                      \\ BURN DOT DAMAGE - DONE
+{STRVAR_1 1, 0, 0} is already burned!                                                                       \\ BURNED ALREADY - DONE
+The wild {STRVAR_1 1, 0, 0}\nis already burned!                                                             \\ BURNED ALREADY - DONE
+The opposing {STRVAR_1 1, 0, 0}\nis already burned!                                                         \\ BURNED ALREADY - DONE
+{STRVAR_1 1, 0, 0} got\nfrostbite!                                                                          \\ Freeze - DONE
+The wild {STRVAR_1 1, 0, 0} got\nfrostbite!                                                                 \\ Freeze - DONE
+The opposing {STRVAR_1 1, 0, 0} got\nfrostbite!                                                             \\ Freeze - DONE
+{STRVAR_1 1, 0, 0} got\nfrostbite!                                                                          \\ Freeze ABILITY - DONE
+The wild {STRVAR_1 1, 0, 0} got\nfrostbite!                                                                 \\ Freeze ABILITY - DONE
+The opposing {STRVAR_1 1, 0, 0} got\nfrostbite!                                                             \\ Freeze ABILITY - DONE
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze {STRVAR_1 1, 2, 0}\fsolid!                          \\ UNUSED
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze the wild\f{STRVAR_1 1, 2, 0} solid!                  \\ UNUSED
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze {STRVAR_1 1, 2, 0}\fsolid!                       \\ UNUSED
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} froze the opposing\f{STRVAR_1 1, 2, 0} solid!          \\ UNUSED
+{STRVAR_1 1, 0, 0} was\nhurt by its frostbite!                                                                  \\ DoT - DONE
+The wild {STRVAR_1 1, 0, 0} was\nhurt by its frostbite!                                                         \\ DoT - DONE
+The opposing {STRVAR_1 1, 0, 0} was\nhurt by its frostbite!                                                     \\ DoT - DONE
+{STRVAR_1 1, 0, 0} warmed up!                                                                                   \\ EXIT FROM FROSTBITE - DONE
+The wild {STRVAR_1 1, 0, 0} warmed up!                                                                          \\ EXIT FROM FROSTBITE - DONE
+The opposing {STRVAR_1 1, 0, 0} warmed up!                                                                      \\ EXIT FROM FROSTBITE - DONE
+{STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} warmed it up!                                                          \\ EXIT FROM FROSTBITE MOVE - DONE
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} warmed it up!                                                 \\ EXIT FROM FROSTBITE MOVE - DONE
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} warmed it up!                                             \\ EXIT FROM FROSTBITE MOVE - DONE
 {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
 The wild {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
 The opposing {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
@@ -1169,9 +1169,9 @@ Whoa!\nA wild {STRVAR_1 1, 0, 0} came charging!
 {STRVAR_1 1, 0, 0} was badly\npoisoned by the {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} was badly\npoisoned by the {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} was badly\npoisoned by the {STRVAR_1 8, 1, 0}!
-{STRVAR_1 1, 0, 0} was burned\nby the {STRVAR_1 8, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} was burned\nby the {STRVAR_1 8, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} was burned\nby the {STRVAR_1 8, 1, 0}!
+{STRVAR_1 1, 0, 0} was burned\nby the {STRVAR_1 8, 1, 0}!                                       \\ FLAME ORB
+The wild {STRVAR_1 1, 0, 0} was burned\nby the {STRVAR_1 8, 1, 0}!                              \\ FLAME ORB
+The opposing {STRVAR_1 1, 0, 0} was burned\nby the {STRVAR_1 8, 1, 0}!                          \\ FLAME ORB
 {STRVAR_1 1, 0, 0} was transferred to\n{STRVAR_1 11, 1, 0} in someone’s PC!
 {STRVAR_1 1, 0, 0} was transferred to\n{STRVAR_1 11, 1, 0} in Bill’s PC!
 {STRVAR_1 11, 1, 0} in someone’s PC is full.\r{STRVAR_1 1, 0, 0} was transferred to\n{STRVAR_1 11, 2, 0} instead!
@@ -1793,3 +1793,9 @@ The healing wish came true for\nthe wild {STRVAR_1 1, 0, 0}!
 The healing wish came true for\nthe opposing {STRVAR_1 1, 0, 0}!
 It created a bizarre area in which\nPokémon’s held items lose\ftheir effects!
 Magic Room wore off, and held items’\neffects returned to normal!
+{STRVAR_1 1, 0, 0} was frostbitten\nby the {STRVAR_1 8, 1, 0}!                                       \\ COLD ORB?
+The wild {STRVAR_1 1, 0, 0} was frostbitten\nby the {STRVAR_1 8, 1, 0}!                              \\ COLD ORB?
+The opposing {STRVAR_1 1, 0, 0} was frostbitten\nby the {STRVAR_1 8, 1, 0}!                          \\ COLD ORB?
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents frostbite!
+The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents frostbite!
+The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents frostbite!

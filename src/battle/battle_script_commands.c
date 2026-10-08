@@ -179,6 +179,7 @@ u32 LoadCaptureSuccessSPA(u32 id);
 u32 LoadCaptureSuccessSPAStarEmitter(u32 id);
 u32 LoadCaptureSuccessSPANumEmitters(u32 id);
 void LONG_CALL UpdateFriendshipFainted(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerId);
+BOOL btl_scr_cmd_HandleFrostbite(void *bsys UNUSED, struct BattleStruct *ctx);
 
 #ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
 #pragma GCC diagnostic push
@@ -484,6 +485,7 @@ const u8 *BattleScrCmdNames[] = {
     "SetFieldCondition2",
     "GoToIfMoveConditionFlagSet",
     // "YourCustomCommand",
+    "HandleFrostbite",
 };
 
 u32 cmdAddress = 0;
@@ -569,6 +571,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x129 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_129_SetFieldCondition2,
     [0x12A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12A_GoToIfMoveConditionFlagSet,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
+    [0x12A - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_HandleFrostbite
 };
 
 // clang-format on
@@ -4337,6 +4340,20 @@ BOOL btl_scr_cmd_112_HandleBurnUp(void *bsys UNUSED, struct BattleStruct *ctx)
     }
 
     RemoveType(ctx, ctx->attack_client, TYPE_FIRE);
+    ctx->moveConditionsFlags[ctx->attack_client].burnUpFlag = TRUE;
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_HandleFrostbite(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    if (ctx->battlemon[ctx->attack_client].is_currently_terastallized) {
+        return FALSE;
+    }
+
+    RemoveType(ctx, ctx->attack_client, TYPE_ICE);
     ctx->moveConditionsFlags[ctx->attack_client].burnUpFlag = TRUE;
 
     return FALSE;
