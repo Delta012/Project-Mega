@@ -580,6 +580,26 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
     debug_printf("[CalcBaseDamage] damage: %d\n", damage);
 #endif
 
+    // Frosbite Modifier
+
+    if (movesplit == SPLIT_SPECIAL) {
+        // Frostbite halves special damage.  this is ignored by guts and facade (as of gen 6)
+        if ((sp->battlemon[attacker].condition & STATUS_FREEZE) && (attackerAbility != ABILITY_GUTS) && (moveno != MOVE_FACADE)) {
+            damage = QMul_RoundDown(damage, UQ412__0_5);
+#ifdef DEBUG_DAMAGE_ROLLS
+            for (int u = 0; u < 16; u++) {
+                predamage[u] = QMul_RoundDown(predamage[u], UQ412__0_5);
+            }
+#endif // DEBUG_DAMAGE_ROLLS
+        }
+    }
+
+#ifdef DEBUG_DAMAGE_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcBaseDamage] Frosbite Modifier\n");
+    debug_printf("[CalcBaseDamage] damage: %d\n", damage);
+#endif
+
     sp->damage = damage;
 
     // 6.9 Final Modifiers

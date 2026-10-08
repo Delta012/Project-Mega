@@ -1274,18 +1274,16 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
     }
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
-        if (BattleRand(bsys) % 5 != 0) {
-            if (effect != MOVE_EFFECT_THAW_AND_BURN_HIT && effect != MOVE_EFFECT_RECOIL_BURN_HIT && effect != MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT) {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FROZEN);
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-                ctx->wb_seq_no = BEFORE_MOVE_START;
-                CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
-                ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
-                ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
-                return;
-            }
-        } else {
+        if (effect != MOVE_EFFECT_THAW_AND_BURN_HIT && effect != MOVE_EFFECT_RECOIL_BURN_HIT && effect != MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT) {
+            // LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FROZEN);
+            // ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            // ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+            // ctx->wb_seq_no = BEFORE_MOVE_START;
+            // CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+            // ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
+            // ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+            return;
+    } else {
             ctx->battlerIdTemp = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -3117,7 +3115,9 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem
         // Grass-type Leech Seed immunity
         || (moveEffect == MOVE_EFFECT_STATUS_LEECH_SEED && HasType(ctx, defender, TYPE_GRASS))
         // Poison / Steel-type poison / badly poison immunity
-        || ((moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON) && (HasType(ctx, defender, TYPE_POISON) || HasType(ctx, defender, TYPE_STEEL)) && GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_CORROSION)) {
+        || ((moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON) && (HasType(ctx, defender, TYPE_POISON) || HasType(ctx, defender, TYPE_STEEL)) && GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_CORROSION)
+        // Ice-type frostbite immunity
+        || (moveEffect == MOVE_EFFECT_STATUS_FREEZE && HasType(ctx, defender, TYPE_ICE))) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_EFFECT;
         ctx->battlerIdTemp = defender;
@@ -3167,6 +3167,7 @@ BOOL BattleController_CheckSafeguard(struct BattleSystem *bsys UNUSED, struct Ba
         case MOVE_EFFECT_STATUS_BADLY_POISON:
         case MOVE_EFFECT_STATUS_BURN:
         case MOVE_EFFECT_STATUS_CONFUSE:
+        case MOVE_EFFECT_STATUS_FREEZE:
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
             ctx->battlerIdTemp = defender;
@@ -3202,7 +3203,7 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
             break;
 
         case MISTY_TERRAIN:
-            if ((moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN || moveEffect == MOVE_EFFECT_STATUS_CONFUSE) && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)) {
+            if ((moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN || moveEffect == MOVE_EFFECT_STATUS_CONFUSE || moveEffect == MOVE_EFFECT_STATUS_FREEZE) && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)) {
                 ctx->battlerIdTemp = defender;
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, moveEffect != MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP);
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MISTY_TERRAIN_PROTECTION);
@@ -3645,6 +3646,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         case MOVE_EFFECT_STATUS_POISON:
         case MOVE_EFFECT_STATUS_BADLY_POISON:
         case MOVE_EFFECT_STATUS_BURN:
+        case MOVE_EFFECT_STATUS_FREEZE:
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
             ctx->battlerIdTemp = defender;
@@ -3755,6 +3757,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         case MOVE_EFFECT_STATUS_POISON:
         case MOVE_EFFECT_STATUS_BADLY_POISON:
         case MOVE_EFFECT_STATUS_BURN:
+        case MOVE_EFFECT_STATUS_FREEZE:
             doesNotAffect = TRUE;
             break;
 
@@ -4648,9 +4651,11 @@ BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED, struc
         // Electric-type paralysis immunity
         if ((attackerCondition & STATUS_PARALYSIS && HasType(ctx, defender, TYPE_ELECTRIC))
             // Fire-type burn immunity
-            || (attackerCondition & STATUS_PARALYSIS && HasType(ctx, defender, TYPE_ELECTRIC))
+            || (attackerCondition & STATUS_BURN && HasType(ctx, defender, TYPE_FIRE))
             // Poison / Steel-type poison / badly poison immunity
-            || (attackerCondition & STATUS_POISON_ALL && (HasType(ctx, defender, TYPE_POISON) || HasType(ctx, defender, TYPE_STEEL)))) {
+            || (attackerCondition & STATUS_POISON_ALL && (HasType(ctx, defender, TYPE_POISON) || HasType(ctx, defender, TYPE_STEEL)))
+            // Frost-type frostbite immunity
+            || (attackerCondition & STATUS_FREEZE && HasType(ctx, defender, TYPE_ICE))) {
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_EFFECT;
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->battlerIdTemp = defender;
@@ -4722,7 +4727,7 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
         // Leech Seed when target already has Leech Seed
         || (moveEffect == MOVE_EFFECT_STATUS_LEECH_SEED && ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED)
         // Status move into target that already has another major status condition (but not the same one)
-        || ((moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN) && ctx->battlemon[defender].condition)
+        || ((moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN || moveEffect == MOVE_EFFECT_STATUS_FREEZE) && ctx->battlemon[defender].condition)
         // Torment when target already has Torment
         || (moveEffect == MOVE_EFFECT_TORMENT && ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_EMBARGO)
         // Yawn into target with status condition / already has Yawn
@@ -4772,7 +4777,8 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
         || (moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN && ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_YAWN)
         || (moveEffect == MOVE_EFFECT_STATUS_PARALYZE && ctx->battlemon[defender].condition & STATUS_PARALYSIS)
         || ((moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON) && ctx->battlemon[defender].condition & STATUS_POISON_ALL)
-        || (moveEffect == MOVE_EFFECT_STATUS_BURN && ctx->battlemon[defender].condition & STATUS_BURN)) {
+        || (moveEffect == MOVE_EFFECT_STATUS_BURN && ctx->battlemon[defender].condition & STATUS_BURN) 
+        || (moveEffect == MOVE_EFFECT_STATUS_FREEZE && ctx->battlemon[defender].condition & STATUS_FREEZE)) {
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;

@@ -430,5 +430,6 @@
 #define RANGE_ALLY                    (1 << 8)
 #define RANGE_SINGLE_TARGET_USER_SIDE (1 << 9)
 #define RANGE_FRONT                   (1 << 10)
+#define MOVE_EFFECT_STATUS_FREEZE     (1 << 11)
 
 #endif

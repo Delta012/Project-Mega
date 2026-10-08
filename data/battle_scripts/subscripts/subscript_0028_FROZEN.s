@@ -4,7 +4,7 @@
 .data
 
 _000:
-    // {0} is frozen solid!
+    // {0} got frostbite!
     PrintMessage 111, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30
