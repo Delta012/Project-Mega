@@ -13,7 +13,7 @@ _000:
     End
 
 _sleep:
-    // {0} woke up!
+    // {0} is no longer drowsy!
     PrintMessage 302, TAG_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     GoTo _end
 
@@ -33,7 +33,7 @@ _paralysis:
     GoTo _end
 
 _freeze:
-    // {0} thawed out!
+    // {0} warmed up!
     PrintMessage 114, TAG_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     GoTo _end
 
